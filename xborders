@@ -430,13 +430,12 @@ class Highlight(Gtk.Window):
             if BORDER_WIDTH != 0:
                 if BORDER_RADIUS > 0:
                     degrees = 0.017453292519943295  # pi/180
-                    ctx.arc(x + w - BORDER_RADIUS, y + BORDER_RADIUS, BORDER_RADIUS, -90 * degrees, 0 * degrees)
                     ctx.arc(x + w - BORDER_RADIUS, y + h - BORDER_RADIUS, BORDER_RADIUS, 0 * degrees, 90 * degrees)
                     ctx.arc(x + BORDER_RADIUS, y + h - BORDER_RADIUS, BORDER_RADIUS, 90 * degrees, 180 * degrees)
-                    ctx.arc(x + BORDER_RADIUS, y + BORDER_RADIUS, BORDER_RADIUS, 180 * degrees, 270 * degrees)
-                    ctx.close_path()
                 else:
-                    ctx.rectangle(x, y, w, h)
+                    # ctx.rectangle(x, y, w, h)
+                    ctx.move_to(x, y + h)
+                    ctx.line_to(x + w, y + h)
 
                 ctx.set_source_rgba(BORDER_R / 255, BORDER_G / 255, BORDER_B / 255, BORDER_A)
                 ctx.set_line_width(BORDER_WIDTH)
