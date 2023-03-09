@@ -274,10 +274,6 @@ class Highlight(Gtk.Window):
         # "role   = 'xborder'",
         self.set_role("xborder")
 
-        # We can still set this for old configurations, we don't want to update and have the user confused as to what
-        # has happened
-        self.set_wmclass("xborders", "xborder")
-
         self.resize(screen_width, screen_height)
         self.move(0, 0)
 
